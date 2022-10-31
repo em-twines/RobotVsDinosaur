@@ -17,25 +17,34 @@ class Dinosaur():
             "Brutal Bite": 25
         }
 
+
     def attack(self, robot):
         
         print(self.name)
-        key = input(f"Which attack would you like to use? {self.attack_power_list}")
-        for key, value in self.attack_power_dict.items():
-            if key == "Claw Cleaver":
-                attack = self.attack_power_dict.get("Claw Cleaver")
-                robot.health -= attack
-            elif key == "Tail Spin":
-                attack = self.attack_power_dict.get("Tail Spin")
-                robot.health -= attack
-            elif key == "Brutal Bite":
-                attack = self.attack_power_dict.get("Brutal Bite")
-                robot.health -= attack        
+        key = input(f"Which attack would you like to use? {self.attack_power_dict}")
+        # for key, value in self.attack_power_dict.items():
+        if key == "Claw Cleaver":
+            attack = self.attack_power_dict.get("Claw Cleaver")
+            robot.health -= attack
             print(f"Your opponent's health is now {robot.health}.")
+            return robot.health
+        elif key == "Tail Spin":
+            attack = self.attack_power_dict.get("Tail Spin")
+            robot.health -= attack
+            print(f"Your opponent's health is now {robot.health}.")
+            return robot.health
+        elif key == "Brutal Bite":
+            attack = self.attack_power_dict.get("Brutal Bite")
+            robot.health -= attack        
+            print(f"Your opponent's health is now {robot.health}.")
+            return robot.health
+        else: 
+            print("Input Error, forfeit round")
+            return robot.health
+
         
         
 
-    
 
 
  

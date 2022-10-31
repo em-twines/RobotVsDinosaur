@@ -18,12 +18,30 @@ class Weapon():
             attack_name_to_diminish = attack_names[attack_to_diminish]
             #yeilds the attack name to be diminished
             attack_hp = dinosaur.attack_power_dict.get(attack_name_to_diminish)
-            attack_hp -= 15
-            print(f"Your opponent's {attack_name_to_diminish} attack now does {attack_hp} damage!")
+            if attack_hp > 0:
+                attack_hp -= 15
+                if attack_hp < 0:
+                    attack_hp = 0
+                    print(f"Your opponent's {attack_name_to_diminish} attack now does 0 damage!")
+                    return attack_name_to_diminish
+                else: 
+                    print(f"Your opponent's {attack_name_to_diminish} attack now does {attack_hp} damage!")
+                    return attack_name_to_diminish
+
+            else:
+                print("Mind Control has no effect.")
+                return dinosaur.attack_power_dict, dinosaur.health
+            #returns name, index
         elif weapon_choice == "Electric Shock":
             dinosaur.health -= 20
             print (f"Your opponent's health is now {dinosaur.health}")
+            return dinosaur.attack_power_dict, dinosaur.health
         elif weapon_choice == "AI":
             dinosaur.attack_power.attack_choice[0].remove
             print(dinosaur.attack_power)
+            return dinosaur.attack_power_dict, dinosaur.health
+        else: 
+            print("Input Error, forfeit round")
+            return dinosaur.attack_power_dict, dinosaur.health
+
 

@@ -18,10 +18,7 @@ Bonus Stories
 
 
 from battlefield import Battlefield
-# from robot import Robot
-# from dinosaur import Dinosaur
-# from weapon import Weapon
+
 
 battlefield_instance = Battlefield()
-
 battlefield_instance.run_game()
