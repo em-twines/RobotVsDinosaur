@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 class Weapon():
     def __init__(self, name):
@@ -11,8 +11,15 @@ class Weapon():
         print("Hal")
         weapon_choice = input(f"Which attack would you like to use? {self.weapon_list}")
         if weapon_choice == "Mind Control":
-            key, value = random.choice(list(dinosaur.attack_power.values())) 
-            value -= 15
+            attack_to_diminish = randint(0, len(dinosaur.attack_power_list)-1)
+            attack_names = []
+            attack_names = list(dinosaur.attack_power_dict.keys())
+            #yields list of attack names.
+            attack_name_to_diminish = attack_names[attack_to_diminish]
+            #yeilds the attack name to be diminished
+            attack_hp = dinosaur.attack_power_dict.get(attack_name_to_diminish)
+            attack_hp -= 15
+            print(f"Your opponent's {attack_name_to_diminish} attack now does {attack_hp} damage!")
         elif weapon_choice == "Electric Shock":
             dinosaur.health -= 20
             print (f"Your opponent's health is now {dinosaur.health}")
