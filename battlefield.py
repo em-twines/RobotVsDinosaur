@@ -208,10 +208,10 @@ class Battlefield():
 
         elif answer == "group":
             self.battle_phase_group()
-            if self.fleet.robot.health <= 0 and self.fleet.robot1.health <= 0 and self.fleet.robot2.health<= 0:
+            if self.fleet.robot.health <= 0 or self.fleet.robot1.health <= 0 or self.fleet.robot2.health<= 0:
                 # self.fleet.fleet_health = 0
                 self.display_winner(self.herd.name)
-            elif self.herd.dinosaur.health <= 0 and self.herd.dinosaur1.health <= 0 and self.herd.dinosaur2.health<= 0:
+            elif self.herd.dinosaur.health <= 0 or self.herd.dinosaur1.health <= 0 or self.herd.dinosaur2.health<= 0:
                 # self.herd.herd_health = 0
                 self.display_winner(self.fleet.name)
 
