@@ -11,7 +11,7 @@ class Weapon():
     def mind_control(self, dinosaur):
         attack_to_diminish = randint(0, len(list(dinosaur.attack_power_dict.keys()))-1)
         attack_names = []
-        attack_names = list(dinosaur.attack_power_dict.keys())
+        attack_names = list(dinosaur.attack_power_dict.keys()) 
         #yields list of attack names.
         attack_name_to_diminish = attack_names[attack_to_diminish]
         #yeilds the attack name to be diminished
@@ -69,7 +69,6 @@ class Weapon():
 
 
     def choose_weapon(self, dinosaur):
-        print("Hal")
         weapon_choice = input(f"Which attack would you like to use? {self.weapon_list}")
         if weapon_choice == "Mind Control":
             result = self.mind_control(dinosaur)

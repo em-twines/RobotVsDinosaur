@@ -8,10 +8,10 @@
 from random import randint
 
 class Dinosaur():
-    def __init__ (self):
-        self.name = "K-T"
+    def __init__ (self, name):
+        self.name = name
         self.attack_power_list = ["Claw Cleaver: -20 hp", "Tail Spin: -15 hp", "Brutal Bite: -25 hp"]
-        self.health = 100
+        self.health = 25
         self.attack_power_dict = {
             "Claw Cleaver": 20,
             "Tail Spin": 15,
@@ -21,7 +21,6 @@ class Dinosaur():
 
     def attack(self, robot):
         
-        print(self.name)
         key = input(f"Which attack would you like to use? {self.attack_power_dict}")
         # for key, value in self.attack_power_dict.items():
         if key == "Claw Cleaver":
