@@ -14,18 +14,25 @@ class Robot():
     def attack(self, dinosaur):
         result = {}
         result = self.active_weapon.choose_weapon(dinosaur)
-        if dinosaur.attack_power_dict.get(result) < 15:
-            var = 0
-            dinosaur.attack_power_dict[result] = var
-            return dinosaur.attack_power_dict, dinosaur.health
-
+        
+        if type(result) is not tuple:
+            if dinosaur.attack_power_dict[result] < 15:
+                var = 0
+                dinosaur.attack_power_dict[result] = var
+                return dinosaur.attack_power_dict, dinosaur.health
+            else:             
+                old_attack_damage = dinosaur.attack_power_dict.get(result)
+                new_attack_damage = old_attack_damage - 15
+                dinosaur.attack_power_dict[result] = new_attack_damage
+                return dinosaur.attack_power_dict, dinosaur.health
+        
         elif type(result) is tuple:
-                return result
-        else: 
-            old_attack_damage = dinosaur.attack_power_dict.get(result)
-            new_attack_damage = old_attack_damage - 15
-            dinosaur.attack_power_dict[result] = new_attack_damage
-            return dinosaur.attack_power_dict, dinosaur.health
+ 
+            return result
+            # old_attack_damage = dinosaur.attack_power_dict.get(result[0])
+            # new_attack_damage = old_attack_damage - 15
+            # dinosaur.attack_power_dict[result] = new_attack_damage
+            # return dinosaur.attack_power_dict, dinosaur.health
     
 
     #     result = ()
