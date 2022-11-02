@@ -21,7 +21,7 @@ class Dinosaur():
 
     def attack(self, robot):
         
-        key = input(f"Which attack would you like to use? {self.attack_power_dict}")
+        key = input(f"{self.name}: Which attack would you like to use? {self.attack_power_dict}")
         # for key, value in self.attack_power_dict.items():
         if key == "Claw Cleaver":
             attack = self.attack_power_dict.get("Claw Cleaver")

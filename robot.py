@@ -13,6 +13,6 @@ class Robot():
 
     def attack(self, dinosaur):
         result = {}
-        result = self.active_weapon.choose_weapon(dinosaur)    
+        result = self.active_weapon.choose_weapon(dinosaur, self)    
         return result
          

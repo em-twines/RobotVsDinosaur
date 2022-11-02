@@ -68,8 +68,8 @@ class Weapon():
         return dinosaur.attack_power_dict, dinosaur.health
 
 
-    def choose_weapon(self, dinosaur):
-        weapon_choice = input(f"Which attack would you like to use? {self.weapon_list}")
+    def choose_weapon(self, dinosaur, robot):
+        weapon_choice = input(f"{robot.name}: Which attack would you like to use? {self.weapon_list}")
         if weapon_choice == "Mind Control":
             result = self.mind_control(dinosaur)
             return result

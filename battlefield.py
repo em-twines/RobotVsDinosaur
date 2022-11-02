@@ -79,8 +79,7 @@ class Battlefield():
     def battle_phase_group(self):
         battle_phase = 1
 
-        # self.fleet.fleet_health = 75
-        # self.herd.herd_health = 75
+
         while (self.fleet.robot.health > 0 or self.fleet.robot1.health > 0 or self.fleet.robot2.health > 0) and (self.herd.dinosaur.health > 0 or self.herd.dinosaur1.health > 0 or self.herd.dinosaur2.health > 0):
             result = []
             for key, value in self.fleet.robot_dict.items():
@@ -140,8 +139,7 @@ class Battlefield():
                     self.herd.dinosaur_list[opponent_int].attack_power_dict["Recover Attack Strength"] = 0
                     print(f"{self.herd.dinosaur_list[opponent_int.name]} has unlocked 'Recover Attack Strength!' If used, it will have a 1 in 3 chance of recovering 20 damage points on one of their attacks!")
 
-            else:
-                self.display_winner(self.fleet.name)
+
                 
             result_dino1 = []
             for key, value in self.herd.dino_dict.items():    
@@ -168,11 +166,6 @@ class Battlefield():
                 opponent_robo_int = 2
 
 
-            # #display fighter choice's extant attacks
-            # if opponent_robo_int == 0:
-
-
-
 
             #dinosaur attacks
             result_dino_attack = ()
@@ -192,8 +185,6 @@ class Battlefield():
 
 
 
-
-
     def run_game(self):
         answer = self.display_welcome()
 
@@ -208,10 +199,10 @@ class Battlefield():
 
         elif answer == "group":
             self.battle_phase_group()
-            if self.fleet.robot.health <= 0 or self.fleet.robot1.health <= 0 or self.fleet.robot2.health<= 0:
+            if self.fleet.robot.health <= 0 and self.fleet.robot1.health <= 0 and self.fleet.robot2.health<= 0:
                 # self.fleet.fleet_health = 0
                 self.display_winner(self.herd.name)
-            elif self.herd.dinosaur.health <= 0 or self.herd.dinosaur1.health <= 0 or self.herd.dinosaur2.health<= 0:
+            elif self.herd.dinosaur.health <= 0 and self.herd.dinosaur1.health <= 0 and self.herd.dinosaur2.health<= 0:
                 # self.herd.herd_health = 0
                 self.display_winner(self.fleet.name)
 
