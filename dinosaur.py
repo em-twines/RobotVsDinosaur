@@ -11,7 +11,7 @@ class Dinosaur():
     def __init__ (self, name):
         self.name = name
         self.attack_power_list = ["Claw Cleaver: -20 hp", "Tail Spin: -15 hp", "Brutal Bite: -25 hp"]
-        self.health = 50
+        self.health = 100
         self.attack_power_dict = {
             "Claw Cleaver": 20,
             "Tail Spin": 15,
